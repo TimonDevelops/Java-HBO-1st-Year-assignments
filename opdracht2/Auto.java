@@ -39,16 +39,22 @@ public class Auto {
         return pk;
     }
     
-    public int getMaxVermogen(int pk) {
+    public int getMaxVermogen() {
         return pk - 20;
     }
 
     public String toString() {
-        return merk + " " + type + " (" + pk + "pk, maximaal op te voeren met " + getMaxVermogen(pk) + ")";
+        return merk + " " + type + " (" + pk + "pk, maximaal op te voeren met " + getMaxVermogen() + ")";
     }
     public  void  voerOp(int extraPk) {
-        System.out.println(merk + " opvoeren met " + extraPk + " pk");  
-        this.pk += extraPk; // hier worden de pk's aangepast
+        System.out.println(merk + " opvoeren met " + extraPk);
+        if (extraPk > getMaxVermogen()) {
+             System.out.println(extraPk + " is teveel, maximaal " + getMaxVermogen());
+        }
+        else { 
+            System.out.println(merk + " opvoeren met " + extraPk + " pk"); 
+            pk += extraPk;
+        }
         System.out.println("resultaat: " + this.toString());
     }        
 }

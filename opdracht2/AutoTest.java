@@ -8,7 +8,7 @@ public class AutoTest {
         System.out.println(auto1);
         auto1.setMerk("Skoda");
         auto1.setType("Fabia");
-        auto1.setPk(600);
+        auto1.setPk(60);
         System.out.println(auto1);
         Auto auto2 = new Auto();
         auto2.setMerk("Tesla");
@@ -23,7 +23,7 @@ public class AutoTest {
         auto1.voerOp(opvoerPK.verschil);
       }
 
-      // method 
+      // methods 
     public static String verschil(Auto auto1, Auto auto2) {
         pkVerschil verschil = new pkVerschil(auto1, auto2);
         if (verschil.verschil > 0) {
@@ -34,6 +34,7 @@ public class AutoTest {
         }
     }
 
+    // class
     public static class pkVerschil {
         Auto auto1;
         Auto auto2;
