@@ -47,7 +47,7 @@ public class Auto {
         return merk + " " + type + " (" + pk + "pk, maximaal op te voeren met " + getMaxVermogen() + ")";
     }
     public  void  voerOp(int extraPk) {
-        System.out.println(merk + " opvoeren met " + extraPk);
+        System.out.println(merk + " opvoeren met " + extraPk + " pk");
         if (extraPk > getMaxVermogen()) {
              System.out.println(extraPk + " is teveel, maximaal " + getMaxVermogen());
         }
