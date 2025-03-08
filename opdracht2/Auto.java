@@ -2,6 +2,7 @@ public class Auto {
     public String merk = "merk onbekend";
     public String type = "";
     public int pk = 20;
+    private boolean opgevoerd;
 
     // empty constructor
     public Auto () {}
@@ -26,6 +27,10 @@ public class Auto {
         this.pk = pk;
     }
 
+    public void setOpgevoerd(boolean set) {
+        this.opgevoerd = set;
+    }
+
     // getters
     public String getMerk() {
         return merk;
@@ -40,20 +45,32 @@ public class Auto {
     }
     
     public int getMaxVermogen() {
+        if (opgevoerd) {
+            return 0;
+        }
         return pk - 20;
     }
 
+    public boolean getOpgevoerd() {
+        return opgevoerd;
+    }
+
     public String toString() {
-        return merk + " " + type + " (" + pk + "pk, maximaal op te voeren met " + getMaxVermogen() + ")";
+        if (opgevoerd) {
+            return merk + " " + type + "(" + pk + " pk, is al opgevoerd)";
+        }
+        else return merk + " " + type + " (" + pk + "pk, maximaal op te voeren met " + getMaxVermogen() + ")";
     }
     public  void  voerOp(int extraPk) {
-        System.out.println(merk + " opvoeren met " + extraPk + " pk");
+        
         if (extraPk > getMaxVermogen()) {
-             System.out.println(extraPk + " is teveel, maximaal " + getMaxVermogen());
+            System.out.println(merk + " opvoeren met " + extraPk + " pk"); 
+            System.out.println(extraPk + " is teveel, maximaal " + getMaxVermogen());
         }
         else { 
             System.out.println(merk + " opvoeren met " + extraPk + " pk"); 
             pk += extraPk;
+            setOpgevoerd(true);
         }
         System.out.println("resultaat: " + this.toString());
     }        

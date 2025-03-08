@@ -1,6 +1,7 @@
 public class AutoTest {
     public Auto auto1;
     public Auto auto2;
+    static int maxOpvoerPks;
 
     // main method
     public static void main(String[] args) {
@@ -17,10 +18,10 @@ public class AutoTest {
         System.out.println(auto2);
         String pkTest = verschil(auto1, auto2);
         System.out.println(pkTest);
-        // bereken extra pk
-        pkVerschil opvoerPK = new pkVerschil(auto1, auto2);
-        //opvoermethode Scoda
-        auto1.voerOp(opvoerPK.verschil);
+        while (auto1.getPK() < auto2.getPK() && !auto1.getOpgevoerd()) {
+            maxOpvoerPks = auto1.getMaxVermogen();
+            auto1.voerOp(maxOpvoerPks);
+            }
       }
 
       // methods 
