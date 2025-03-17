@@ -10,6 +10,7 @@ public class Weerbericht {
     boolean zon;
     private LocalDate datum;
     private DateTimeFormatter datumFormat;
+    private int dagTeller;
 
     // constructors
     public Weerbericht() {}
@@ -79,11 +80,20 @@ public class Weerbericht {
         return windrichting;
     }
     public String getDagVanDeWeek() {
-        datum = LocalDate.now();
+        datum = LocalDate.now().plusDays(this.dagTeller);
         datumFormat = DateTimeFormatter.ofPattern("eeee");
         String dag = datum.format(datumFormat);
         return dag;
     }
+
+    public void verhoogDag() {
+        this.dagTeller = 1;
+    }
+    
+    public void verhoogDag(int dagTeller) {
+        this.dagTeller = this.dagTeller += dagTeller;
+    }
+
     // toString
     public String toString() {
         String weerbericht = "Weerbericht " + getDagVanDeWeek() + " - temperatuur: " + temperatuur + ", wind: " + windkracht + " " + windrichting;

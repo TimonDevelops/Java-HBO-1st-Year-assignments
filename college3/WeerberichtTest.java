@@ -5,5 +5,9 @@ public class WeerberichtTest {
         System.out.println(weerbericht);
         weerbericht.setBewolking(true);
         System.out.println(weerbericht);
+        weerbericht.verhoogDag();
+        System.out.println(weerbericht);
+        weerbericht.verhoogDag(2);
+        System.out.println(weerbericht);
     }
 }
