@@ -1,4 +1,7 @@
 import java.time.format.DateTimeFormatter;
+
+import javax.swing.ImageIcon;
+
 import java.time.LocalDate;
 
 public class Weerbericht {
@@ -13,8 +16,9 @@ public class Weerbericht {
     private int dagTeller;
 
     // constructors
-    public Weerbericht() {}
-    
+    public Weerbericht() {
+    this (0, 0, "Geen", false, false, true);
+    }
     public Weerbericht (double temperatuur, int windkracht, String windrichting) {
         this (temperatuur, windkracht, windrichting, false, false, true);
     }
@@ -42,14 +46,12 @@ public class Weerbericht {
         if (neerslag) {
             this.neerslag = neerslag;
             this.bewolking = true;
-            this.zon = false;
         }
         else this.neerslag = neerslag;
     }
     public void setBewolking(boolean bewolking) {
         if (bewolking) {
         this.bewolking = bewolking;
-        this.zon = false;
         }
         else {
             this.bewolking = bewolking;
@@ -60,8 +62,6 @@ public class Weerbericht {
     public void setZon(boolean zon) {
         if (zon) {
             this.zon = zon;
-            this.bewolking = false;
-            this.neerslag = false;
         }
         else {
             this.zon = zon;
@@ -85,13 +85,50 @@ public class Weerbericht {
         String dag = datum.format(datumFormat);
         return dag;
     }
-
+    public ImageIcon getWeerAfbeelding() {
+        ImageIcon afbeelding;
+        if (bewolking) {
+            if (neerslag) {
+                if (temperatuur <=0.0) {
+                    if (zon) {
+                        afbeelding = new ImageIcon("zon-sneeuw.png");
+                        return afbeelding;
+                    }
+                    else {
+                        afbeelding = new ImageIcon("sneeuw.png");
+                        return afbeelding;
+                    }
+                }
+                else if (zon) {
+                    afbeelding = new ImageIcon("zon-regen.png");
+                    return afbeelding;
+                }
+                else { 
+                    afbeelding = new ImageIcon("regen.png");
+                    return afbeelding;
+                }
+            }
+            else if (zon) {
+                afbeelding = new ImageIcon("zon-wolk.png");
+                return afbeelding;
+            }
+            else {
+                afbeelding = new ImageIcon("wolk.png");
+                return afbeelding;
+            }
+        }
+        else {
+            afbeelding = new ImageIcon("zon.png");
+            return afbeelding;
+        }
+    }
+    
     public void verhoogDag() {
         this.dagTeller = 1;
     }
     
     public void verhoogDag(int dagTeller) {
-        this.dagTeller = this.dagTeller += dagTeller;
+        this.dagTeller += dagTeller;
     }
 
     // toString
