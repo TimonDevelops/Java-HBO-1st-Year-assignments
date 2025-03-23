@@ -1,7 +1,5 @@
 import java.time.format.DateTimeFormatter;
-
 import javax.swing.ImageIcon;
-
 import java.time.LocalDate;
 
 public class Weerbericht {
