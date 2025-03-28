@@ -2,7 +2,7 @@ public class CircusTest {
     
     public static void main(String[] args) {
         Artiest artiest1 = new Artiest("Martha Morgana");
-        Artiest artiest2 = new Artiest("Joe Rogan");
+        Artiest artiest2 = new Artiest("Joe Montana");
         System.out.println(artiest1);
         System.out.println(artiest2);
         CircusAct act1 = new CircusAct("Trapeze", 12);
