@@ -5,6 +5,6 @@ public class Artiest {
         this.naam = naam;
     }
     public String toString() {
-        return "artiest " + naam;
+        return naam;
     }
 }

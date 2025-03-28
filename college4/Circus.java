@@ -9,8 +9,18 @@ public class Circus {
         };
     }
     public void printArtiesten() {
-        for (int i = 0; i < artiesten.length; i++) {
-            System.out.println("Artiest " + i + ": " + artiesten[i].toString());
+        int i = 0;
+        for (Artiest artiest : artiesten) {
+            i += 1;
+            System.out.println("Artiest " + i + ": " + artiest.toString());
         }
+        // classic
+        // for (int i = 0; i < artiesten.length; i++) {
+        //     System.out.println("Artiest " + i + ": " + artiesten[i].toString());
+        // }
         }
+    public void getAantalArtiesten() {
+        int aantal = artiesten.length;
+        System.out.println("Aantal artiesten: " + aantal);
+    }
     }
