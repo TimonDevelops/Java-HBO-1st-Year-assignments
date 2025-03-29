@@ -14,11 +14,14 @@ public class CircusAct {
     public void voegArtiestToe(Artiest artiest) {
         artiesten.add(artiest);
     }
+    public int getTijdsduur() {
+        return tijdsduur;
+    }
 
+    // prints/toString
     public void printAct() {
         System.out.println(this);
     }
-
     public String toString() {
         String print = "";
         for (Artiest artiest : artiesten) {

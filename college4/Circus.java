@@ -1,12 +1,51 @@
-public class Circus {
-    private Artiest[] artiesten;
+import java.util.ArrayList;
 
-    public Circus() {
-        this.artiesten = new Artiest[] {
-            new Artiest("Aap"),
-            new Artiest("Noot"),
-            new Artiest("Mies")
-        };
+
+public class Circus {
+    private String naam;
+    private ArrayList<Artiest> artiesten;
+    private ArrayList<CircusAct> acts;
+
+    public Circus(String naam) {
+        this.naam = naam;
+        acts = new ArrayList<>();
+        artiesten = new ArrayList<>();
+        System.out.println(this.naam);
+    }
+    public void voegActToe(CircusAct act) {
+        acts.add(act);
+    }
+    public void voegArtiestToe(Artiest artiest) {
+        artiesten.add(artiest);
+    }
+    public void getAantalArtiesten() {
+        int aantal = artiesten.size();
+        System.out.println("Aantal artiesten: " + aantal);
+    }
+    public void getAantalActs() {
+        int aantal = acts.size();
+        System.out.println("Aantal acts: " + aantal);
+    }
+    public CircusAct zoek(int tijdsduur) {
+        CircusAct resultaat = null;
+        for (CircusAct act : acts) {
+            if (act.getTijdsduur() == tijdsduur) {
+                resultaat = act;
+            }
+        }   return resultaat;
+    }
+    public int tijdVanAlleActs() {
+        int totaalTijd = 0;
+        for (CircusAct act : acts) {
+            totaalTijd += act.getTijdsduur();
+        }
+        return totaalTijd;
+    }
+    // prints/toString
+    public void printActOverzicht() {
+        for (CircusAct act : acts) {
+            act.printAct();
+        }
     }
     public void printArtiesten() {
         int i = 0;
@@ -19,8 +58,4 @@ public class Circus {
         //     System.out.println("Artiest " + i + ": " + artiesten[i].toString());
         // }
         }
-    public void getAantalArtiesten() {
-        int aantal = artiesten.length;
-        System.out.println("Aantal artiesten: " + aantal);
-    }
-    }
+}
