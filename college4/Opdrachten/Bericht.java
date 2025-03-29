@@ -1,17 +1,17 @@
 import java.time.LocalDateTime;
 
 public class Bericht {
-    private String afzender;
+    private Gebruiker afzender;
     private String bericht;
     private LocalDateTime datum;
 
-    public Bericht(String afzender, String bericht) {
+    public Bericht(Gebruiker afzender, String bericht) {
         setAfzender(afzender);
         setBericht(bericht);
         setDatum();
     }
     // setters
-    public void setAfzender(String afzender) {
+    public void setAfzender(Gebruiker afzender) {
         this.afzender = afzender;
     }
     public void setBericht(String bericht) {
@@ -21,7 +21,7 @@ public class Bericht {
         this.datum = LocalDateTime.now();
     }
     // getters
-    public String getAfzender() {
+    public Gebruiker getAfzender() {
         return afzender;
     } 
     public String getBericht() {
@@ -31,6 +31,6 @@ public class Bericht {
         return datum;
     }
     public String toString() {
-        return afzender + " " + datum + ": " + bericht;
+        return afzender + " Datum: " + datum + " Bericht: " + bericht;
     }
 }
