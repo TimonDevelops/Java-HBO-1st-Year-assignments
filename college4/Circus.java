@@ -41,6 +41,24 @@ public class Circus {
         }
         return totaalTijd;
     }
+    public CircusAct zoekLangsteAct() {
+        CircusAct langsteAct = acts.get(0);
+
+        for (CircusAct act : acts) {
+            if (act.getTijdsduur() > langsteAct.getTijdsduur()) {
+                langsteAct = act;
+            }
+        }   return langsteAct;
+    }
+    public ArrayList<CircusAct> zoekActMetAantalArtiesten(int aantal) {
+        ArrayList<CircusAct> list = new ArrayList<>();
+        for (CircusAct act : acts) {
+            if (act.getAantalArtiesten() == aantal) {
+                list.add(act);
+            }
+        } return list;
+
+    }
     // prints/toString
     public void printActOverzicht() {
         for (CircusAct act : acts) {

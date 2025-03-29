@@ -32,5 +32,6 @@ public class CircusTest {
         circus.printArtiesten();
         circus.printActOverzicht();
         System.out.println("De tijd van de alle acts bij elkaar is " + circus.tijdVanAlleActs() + " minuten");
+        System.out.println(circus.zoekActMetAantalArtiesten(2));
     }
 }

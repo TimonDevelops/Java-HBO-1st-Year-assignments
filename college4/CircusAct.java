@@ -17,7 +17,10 @@ public class CircusAct {
     public int getTijdsduur() {
         return tijdsduur;
     }
-
+    public int getAantalArtiesten() {
+        int aantal = artiesten.size();
+        return aantal;
+    }
     // prints/toString
     public void printAct() {
         System.out.println(this);
