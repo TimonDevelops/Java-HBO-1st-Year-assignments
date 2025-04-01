@@ -20,8 +20,8 @@ public class Persoon {
     public int getLengte() {
         return lengte;
     }
-    // public String toString() {
-    //     return "Naam: " + naam + " Lengte: " + lengte;
-    // }
+    public String toString() {
+        return "Naam: " + naam + " Lengte: " + lengte;
+    }
 }
 
