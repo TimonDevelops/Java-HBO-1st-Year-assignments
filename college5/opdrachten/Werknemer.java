@@ -9,6 +9,9 @@ public class Werknemer extends Persoon {
     public double getSalaris() {
         return this.salaris;
     }
+    public void verhoogSalaris(double v) {
+        salaris = salaris + v;
+    }
 
     public String toString() {
         return super.toString() + " Salaris: " + salaris;

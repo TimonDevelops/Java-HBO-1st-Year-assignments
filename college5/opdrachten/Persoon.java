@@ -6,6 +6,9 @@ public class Persoon {
         naam = n;
         leeftijd = l;
     }
+    public void jarig() {
+        leeftijd = leeftijd + 1;
+    }
 
     public String toString() {
         return "Naam: " + naam + " Leeftijd: " + leeftijd;
