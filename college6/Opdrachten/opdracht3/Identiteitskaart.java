@@ -11,6 +11,6 @@ public class Identiteitskaart extends Reisdocument {
 
     @Override
     public String getGeldigeLanden() {
-        return "Europa";
+        return "reizen in Europa";
     }
 }

@@ -28,6 +28,6 @@ public class Rijbewijs implements Legitimatiebewijs {
     }
 
     public String toString() {
-        return "Naam: " + naam + " BSN: " + BSN + " Documentype: " + getDocumentType() + " Categorie: " + categorie;
+        return "Rijbewijs{naam=" + naam + ", BSN=" + BSN + ", categorie=" + getCategorie() + "}";
     }
 }

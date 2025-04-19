@@ -11,7 +11,7 @@ public class Paspoort extends Reisdocument {
 
     @Override
     public String getGeldigeLanden() {
-        return "de hele wereld";
+        return "reizen in de hele wereld";
     }
 
 

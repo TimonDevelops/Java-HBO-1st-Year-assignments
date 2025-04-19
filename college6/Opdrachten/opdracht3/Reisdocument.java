@@ -17,6 +17,6 @@ public abstract class Reisdocument implements Legitimatiebewijs {
     }
 
     public String toString() {
-        return " type: " + getDocumentType() + " geldig in " + getGeldigeLanden();
+        return "Reisdocument{naam=" + naam + ", BSN=" + BSN + "}type: " + getDocumentType() + ", geldig in " + getGeldigeLanden();
     }
 }
