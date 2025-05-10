@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 public class Writer {
 
     public static void main(String[] args) {
+
         PrintWriter writer = null;
         try {
             writer = new PrintWriter("bestand.txt");
@@ -13,10 +14,13 @@ public class Writer {
             for (int i = 0; i < 4; i++) {
                 writer.println(namen[i]);
             }
+            writer.close();
         } catch (FileNotFoundException ex) {
             System.out.println("Bestand kan niet gemaakt worden: " + ex.getMessage());
         } finally {
+            if (writer != null) {
             writer.close();
+            }
         }
     }
 }
