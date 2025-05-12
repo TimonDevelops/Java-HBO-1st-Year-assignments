@@ -4,16 +4,21 @@ import java.awt.event.*;
 
 public class DemoFrame extends JFrame implements ActionListener{
 
+	private JLabel jlNaam;
+	private JTextField jtfNaam;
+	private JTextField jtfLeeftijd;
 	private JButton jbOK;
 
     public DemoFrame() {
 		setTitle("Titel");
 		setSize(600, 200);
 		setLayout(new FlowLayout());
-		JLabel jlNaam = new JLabel("naam");
+		jlNaam = new JLabel("naam");
 		add(jlNaam);
-		JTextField jtfNaam = new JTextField(10);
+		jtfNaam = new JTextField(10);
 		add(jtfNaam);
+		jtfLeeftijd = new JTextField(10);
+		add(jtfLeeftijd);
 		jbOK = new JButton("OK");
 		add(jbOK);
 		jbOK.addActionListener(this);
@@ -21,6 +26,8 @@ public class DemoFrame extends JFrame implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Click");
+		String ingevoerdeNaam = jtfNaam.getText();
+		String ingevoerdeLeeftijd = jtfLeeftijd.getText();
+		System.out.println("De ingevoerde naam is " + ingevoerdeNaam + ", leeftijd: " + ingevoerdeLeeftijd);
 	}
 }
