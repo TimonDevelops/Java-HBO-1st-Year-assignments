@@ -55,9 +55,17 @@ public class Wisselscherm extends JFrame implements ActionListener {
         dollarEuroBtn.addActionListener(this);
         
         setVisible(true);
+
+        //logica
+
     }
 
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == euroDollarBtn) {
+            System.out.println(euroAmount);
+        }
+        else if (e.getSource() == dollarEuroBtn) {
+            System.out.println(dollarAmount);
+        }
     }
 }
