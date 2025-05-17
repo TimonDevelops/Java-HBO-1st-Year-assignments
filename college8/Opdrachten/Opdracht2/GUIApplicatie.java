@@ -1,12 +1,5 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.border.Border;
+import java.awt.*;
+import javax.swing.*;
 
 public class GUIApplicatie extends JFrame {
     
