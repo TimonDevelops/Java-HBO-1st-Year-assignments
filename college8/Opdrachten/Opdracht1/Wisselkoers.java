@@ -10,10 +10,13 @@ public class Wisselkoers {
     }
 
     public double munt1NaarMunt2(double bedrag) {
-        return bedrag;
+        double resultaat = bedrag * koers;
+        return resultaat;
     }
 
     public double munt2NaarMunt1(double bedrag) {
-        return bedrag;
+        double koersDollarEuro = 1.0 / koers;
+        double resultaat = koersDollarEuro * bedrag;
+        return resultaat;
     }
 }

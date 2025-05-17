@@ -28,10 +28,7 @@ public class Wisselscherm extends JFrame implements ActionListener {
 
         // Buttons
         euroDollarBtn = new JButton(">>");
-        euroDollarBtn.addActionListener(this);
-
         dollarEuroBtn = new JButton("<<");
-        dollarEuroBtn.addActionListener(this);
 
         // Dollar
         dollar = new JLabel("$");
@@ -50,7 +47,7 @@ public class Wisselscherm extends JFrame implements ActionListener {
         add(dollar);
         add(dollarAmount);
 
-        // actionListeners
+        // actionListeners adding
         euroDollarBtn.addActionListener(this);
         dollarEuroBtn.addActionListener(this);
         
@@ -61,11 +58,18 @@ public class Wisselscherm extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        
         if (e.getSource() == euroDollarBtn) {
-            System.out.println(euroAmount);
+            double bedragEuro = Double.parseDouble(euroAmount.getText());
+            double bedrag = Math.round(wisselkoers.munt1NaarMunt2(bedragEuro) * 100.0) / 100.0;
+            dollarAmount.setText(String.valueOf(bedrag));
+            System.out.println("Euro: " + bedragEuro);
         }
         else if (e.getSource() == dollarEuroBtn) {
-            System.out.println(dollarAmount);
+            double bedragDollar = Double.parseDouble(dollarAmount.getText());
+            double bedrag = Math.round(wisselkoers.munt2NaarMunt1(bedragDollar) * 100.0) /100.0;
+            euroAmount.setText(String.valueOf(bedrag));
+            System.out.println("Dollar: " + bedragDollar);
         }
     }
 }
