@@ -4,8 +4,9 @@ import java.awt.*;
 
 public class Hoofdscherm extends JFrame implements ActionListener {
     
-    private JTextField tekst;
+    private JTextArea tekst;
     private JButton loginBtn;
+    private MijnDialoog dialoog;
 
     public Hoofdscherm() {
 
@@ -17,7 +18,7 @@ public class Hoofdscherm extends JFrame implements ActionListener {
 
         loginBtn = new JButton("inloggen");
         loginBtn.addActionListener(this);
-        tekst = new JTextField(20);
+        tekst = new JTextArea(2, 1);
         add(loginBtn);
         add(tekst);
 
@@ -26,8 +27,15 @@ public class Hoofdscherm extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         // maak dialog aan met deze frame instantie als ouder en "dialoog" als kind
-        MijnDialoog dialoog = new MijnDialoog(this);
+        dialoog = new MijnDialoog(this);
         dialoog.setVisible(true);
+        if (dialoog.getisOK()) {
+            String naam = dialoog.getNaam();
+            String wachtwoord = dialoog.getWachtwoord();
+            tekst.setText("Gebruikersnaam " + naam + "\nWachtwoord " + wachtwoord);
+        } else {
+            tekst.setText("Inloggen geannuleerd");
+        }
     }
 }
 
