@@ -6,6 +6,7 @@ public class Hoofdscherm extends JFrame implements ActionListener {
     
     private JTextArea tekst;
     private JButton loginBtn;
+    private JButton logoutBtn;
     private MijnDialoog dialoog;
 
     public Hoofdscherm() {
@@ -18,6 +19,8 @@ public class Hoofdscherm extends JFrame implements ActionListener {
 
         loginBtn = new JButton("inloggen");
         loginBtn.addActionListener(this);
+        logoutBtn = new JButton("uitloggen");
+        logoutBtn.addActionListener(this);
         tekst = new JTextArea(2, 1);
         add(loginBtn);
         add(tekst);
@@ -27,15 +30,36 @@ public class Hoofdscherm extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         // maak dialog aan met deze frame instantie als ouder en "dialoog" als kind
-        dialoog = new MijnDialoog(this);
-        dialoog.setVisible(true);
-        if (dialoog.getisOK()) {
-            String naam = dialoog.getNaam();
-            String wachtwoord = dialoog.getWachtwoord();
-            tekst.setText("Gebruikersnaam " + naam + "\nWachtwoord " + wachtwoord);
+
+        if (e.getSource() == loginBtn) {
+            dialoog = new MijnDialoog(this);
+            dialoog.setVisible(true);
+            if (dialoog.getisOK()) {
+                remove(loginBtn);
+                remove(tekst);
+                add(logoutBtn);
+                add(tekst);
+                String naam = dialoog.getNaam();
+                String wachtwoord = dialoog.getWachtwoord();
+                tekst.setText("Gebruikersnaam: " + naam + "\nWachtwoord: " + wachtwoord);
+                JOptionPane.showMessageDialog(this, "U bent succesvol ingelogd");
+
+            } else {
+                tekst.setText("Inloggen geannuleerd");
+                JOptionPane.showMessageDialog(this, "Inloggen mislukt");
+            }
         } else {
-            tekst.setText("Inloggen geannuleerd");
+            int keuze = JOptionPane.showConfirmDialog(this, "Weet u het zeker?", "Vraag", JOptionPane.YES_NO_OPTION);
+            if(keuze == JOptionPane.YES_OPTION) {
+                tekst.setText("");                
+                remove(tekst);
+                remove(logoutBtn);
+                add(loginBtn);
+                add(tekst);
+            } 
         }
+        
     }
 }
 
+            // 
